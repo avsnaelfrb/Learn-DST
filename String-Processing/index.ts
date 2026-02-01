@@ -9,8 +9,10 @@ const atMethod = text.at(8)
 const charAtMethod = text.charAt(10)
 const sliceMethod = text.slice(18, -1)
 const subStringMethod = text.substring(18, -1)
+const splitMethod = text.split("\n")
 
 console.log('At method:', atMethod);
 console.log('CharAt method:', charAtMethod);
 console.log('Slice method:', sliceMethod);
 console.log('Sub String method:', subStringMethod);
+console.log('Split method:', splitMethod);
