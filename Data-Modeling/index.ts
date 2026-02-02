@@ -45,10 +45,20 @@ const dstParagraph = cleanLine.map(line => ({
     text: line
 }))
 
-console.log('Clean line before DST', cleanLine);
-console.log('\n');
 console.log('DST Paragraph:', dstParagraph);
 console.log('\n');
 
 
+const dstParagraphWithSentence = cleanLine.map(line => {
+    const type = detectType(line)
+
+    const sentence = line.split('.').map(s => s.trim()).filter(Boolean)
+
+    return {
+        type,
+        text: sentence
+    }
+})
+
+console.log('DST sentence:', dstParagraphWithSentence);
 
