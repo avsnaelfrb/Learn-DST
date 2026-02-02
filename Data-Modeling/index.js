@@ -22,7 +22,14 @@ var dstParagraph = cleanLine.map(function (line) { return ({
     type: detectType(line),
     text: line
 }); });
-console.log('Clean line before DST', cleanLine);
-console.log('\n');
 console.log('DST Paragraph:', dstParagraph);
 console.log('\n');
+var dstParagraphWithSentence = cleanLine.map(function (line) {
+    var type = detectType(line);
+    var sentence = line.split('.').map(function (s) { return s.trim(); }).filter(Boolean);
+    return {
+        type: type,
+        text: sentence
+    };
+});
+console.log('DST sentence:', dstParagraphWithSentence);
