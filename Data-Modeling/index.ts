@@ -16,6 +16,9 @@ const node: DataStructure[] = [
     }
 ]
 
+console.log('Node DST:', node);
+console.log('\n');
+
 const raw: string = `
 BAB I PENDAHULUAN
 
@@ -37,14 +40,15 @@ function detectType(line: any): NodeType {
     return "paragraph"
 }
 
-const dst = cleanLine.map(line => ({
+const dstParagraph = cleanLine.map(line => ({
     type: detectType(line),
     text: line
 }))
 
-console.log('Node DST:', node);
-console.log('\n');
 console.log('Clean line before DST', cleanLine);
 console.log('\n');
-console.log('DST Lines:', dst);
+console.log('DST Paragraph:', dstParagraph);
+console.log('\n');
+
+
 
