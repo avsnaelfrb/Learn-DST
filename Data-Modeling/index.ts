@@ -19,11 +19,8 @@ const node: DataStructure[] = [
 const raw: string = `
 BAB I PENDAHULUAN
 
-Algoritma adalah sekumpulan langkah-langkah sistematis yang disusun secara logis untuk menyelesaikan sebuah masalah dalam pemrograman.
-Struktur data adalah cara menyimpan data secara terorganisir agar dapat diakses dan dimodifikasi dengan efisien pada memori komputer.
-Keduanya merupakan fondasi utama dalam membangun sistem perangkat lunak yang memiliki performa tinggi serta skalabilitas yang baik.
-Tanpa pemahaman algoritma yang kuat, kode akan sulit untuk dibaca.
-Sebaliknya, tanpa struktur data yang tepat, program akan menjadi sangat lambat dalam memproses informasi yang besar dan kompleks.
+Algoritma merupakan sekumpulan instruksi sistematis yang disusun secara logis untuk menyelesaikan permasalahan spesifik dalam pemrograman. Sementara itu, struktur data adalah metode pengorganisasian, penyimpanan, dan pengaturan data di dalam memori komputer agar dapat diakses serta dimodifikasi secara efisien. Sinergi antara keduanya merupakan fondasi fundamental dalam pengembangan perangkat lunak untuk menghasilkan performa yang optimal dan skalabilitas yang tinggi.
+Penerapan algoritma yang tepat sangat krusial karena tanpa logika yang kuat, kode program akan menjadi sulit dipahami dan dipelihara. Sebaliknya, pemilihan struktur data yang tidak sesuai dapat menyebabkan penurunan performa yang signifikan, terutama saat sistem harus memproses volume informasi yang besar dan kompleks. Oleh karena itu, penguasaan terhadap kedua aspek ini menjadi syarat mutlak dalam membangun sistem yang handal dan efisien.
 
 BAB II LANDASAN TEORI
 Dalam implementasinya, pemilihan struktur data sangat bergantung pada jenis operasi yang paling sering dilakukan oleh program. Sebagai contoh, Array menawarkan akses data yang cepat melalui indeks, namun memerlukan biaya komputasi yang besar saat melakukan penyisipan atau penghapusan di tengah elemen. Di sisi lain, struktur seperti Linked List memberikan fleksibilitas lebih tinggi dalam manipulasi elemen dinamis, meskipun pencarian datanya relatif lebih lambat.
