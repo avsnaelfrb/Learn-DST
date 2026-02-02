@@ -1,0 +1,19 @@
+type NodeType = 'heading' | 'paragraph'
+
+interface DataStructure {
+    type: NodeType;
+    text: string
+}
+
+const node: DataStructure[] = [
+    {
+        type: 'heading',
+        text: 'BAB I PENDAHULUAN'
+    },
+    {
+        type: 'paragraph',
+        text: 'Algoritma adalah sekumpulan langkah-langkah sistematis yang disusun secara logis untuk menyelesaikan sebuah masalah dalam pemrograman.'
+    }
+]
+
+console.log('Node DST:', node);
