@@ -12,17 +12,12 @@ const readDocx = async (filename:string) => {
 }
 
 const normalizeEnum = (lines: string[]): string[] => {
-    const upperEnumRegex = /([A-Z]\.)/g
-    const lowerEnumRegex = /([a-z]\))/g
+    const enumRegex = /([A-Z]\.|(?<!\()[a-z]\))/g
     const delimiter = '|||'
 
-    return lines.flatMap((line) => {
-        const processedLine = line
-            .replace(upperEnumRegex, `${delimiter}$1`)
-            .replace(lowerEnumRegex, `${delimiter}$1`)
-        
-        return processedLine.split(delimiter).map(l => l.trim()).filter(Boolean)
-    })
+    return lines.flatMap(line => 
+        line.replace(enumRegex, `${delimiter}$1`).split(delimiter).map(l => l.trim()).filter(Boolean)
+    )
 }
 
 readDocx('sample-v2.0')
