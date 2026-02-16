@@ -31,7 +31,7 @@ interface NodeObject {
 const classification = async (filename: string) => {
     const resultNormalize = await readDocx(filename)
     let currentLevel: number = 0
-
+    let results: NodeObject[] = []
     for (let i = 0; i < resultNormalize.length; i++) {
         const text = resultNormalize[i]!.trim();
 
@@ -50,14 +50,46 @@ const classification = async (filename: string) => {
 
             const subbabRegex = /^\d+(?:\.\d+)*\.?\s+/
             const matchesSubbabPattern = text.match(subbabRegex)
+
             if (matchesSubbabPattern) {
-                matchesSubbabPattern[0].trim()
+                const numberingPart = matchesSubbabPattern[0].trim()
+                const dotSubbab = numberingPart.match(/\./g)!.length
+
+                detectedType = 'Heading'
+                detectedLevel = dotSubbab + 2
+                currentLevel = detectedLevel
             } else {
                 
+                const capitalRegex = /^[A-Z]\.\s+/
+                const lowercaseRegex = /^[a-z]\)\s+/
+
+                if (capitalRegex.test(text) || lowercaseRegex.test(text)) {
+                    detectedType = 'List-Item'
+                    detectedLevel = currentLevel + 1
+                } else {
+                    
+                    if (text.endsWith(':')) {
+                        detectedType = 'Container'
+                        detectedLevel = currentLevel
+                    } else {
+                        
+                        detectedType = 'Paragraph'
+                        detectedLevel = currentLevel
+
+                    }
+                }
             }
         }
+        results.push({
+            type: detectedType,
+            level: detectedLevel,
+            text
+        })
     }
+    return results
     // console.log(resultNormalize);
 }
 
-classification('sample-v2.0')
+classification('sample-v2.0').then(res => {
+    console.log(res);
+})
